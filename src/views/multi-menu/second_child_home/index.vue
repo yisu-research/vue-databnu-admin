@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <LookForward />
+  <JsonEditor :code="`${'sdfhjkldhfksldfhk'}`" />
 </template>
 
 <style scoped></style>

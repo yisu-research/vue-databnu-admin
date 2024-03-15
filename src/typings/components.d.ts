@@ -32,6 +32,7 @@ declare module 'vue' {
     IconMdiKeyboardReturn: typeof import('~icons/mdi/keyboard-return')['default']
     IconMdiRefresh: typeof import('~icons/mdi/refresh')['default']
     IconUilSearch: typeof import('~icons/uil/search')['default']
+    JsonEditor: typeof import('./../components/common/json-editor.vue')['default']
     LangSwitch: typeof import('./../components/common/lang-switch.vue')['default']
     LookForward: typeof import('./../components/custom/look-forward.vue')['default']
     MenuToggler: typeof import('./../components/common/menu-toggler.vue')['default']
