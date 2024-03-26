@@ -73,7 +73,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="editor">
+  <div class="editor space-y-3">
     <div class="main">
       <Codemirror
         v-model="code"
@@ -83,7 +83,7 @@ onMounted(() => {
           backgroundColor: '#fff',
           color: '#333'
         }"
-        placeholder="Please enter the code."
+        placeholder="请输入配置代码"
         :extensions="extensions"
         autofocus
         indent-with-tab
@@ -93,18 +93,26 @@ onMounted(() => {
       />
       <pre v-if="preview" class="code" :style="{ height: '75vh', width: preview ? '50%' : '0px' }">{{ code }}</pre>
     </div>
-    <div class="divider"></div>
-    <div class="footer">
-      <div class="space-x-4">
+    <div class="grid grid-cols-12 items-center gap-y-4">
+      <div class="col-span-5 <xl:col-span-24 space-x-4">
         <NButton @click="togglePreview">
-          <span>Preview</span>
-          <i class="iconfont" :class="preview ? 'icon-eye' : 'icon-eye-close'"></i>
+          <span class="mr-1">预览</span>
+          <SvgIcon :icon="preview ? 'iconamoon:eye-duotone' : 'iconamoon:eye-off-duotone'" class="text-icon" />
         </NButton>
-        <NButton @click="handleUndo">Undo</NButton>
-        <NButton @click="handleRedo">Redo</NButton>
-        <NButton @click="handleSave">Save</NButton>
+        <NButton @click="handleUndo">
+          <span class="mr-1">撤销</span>
+          <SvgIcon icon="ci:undo" class="text-icon" />
+        </NButton>
+        <NButton @click="handleRedo">
+          <span class="mr-1">重做</span>
+          <SvgIcon icon="ci:redo" class="text-icon" />
+        </NButton>
+        <NButton type="primary" @click="handleSave">
+          <span class="mr-1">保存</span>
+          <SvgIcon icon="ant-design:save-twotone" class="text-icon" />
+        </NButton>
       </div>
-      <div class="space-x-8">
+      <div class="col-span-7 justify-self-end <xl:col-span-24 space-x-8 <md:space-x-4">
         <span>Spaces: {{ 2 }}</span>
         <span>Length: {{ state.length }}</span>
         <span>Lines: {{ state.lines }}</span>
@@ -116,17 +124,9 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-// theme
-$text-color: #24292f;
-$text-secondary: rgba($text-color, 0.72);
 $border-color: #d4d4d4;
 
 .editor {
-  .divider {
-    height: 1px;
-    background-color: $border-color;
-  }
-
   .main {
     display: flex;
     width: 100%;
@@ -140,15 +140,6 @@ $border-color: #d4d4d4;
       border-left: 1px solid $border-color;
       font-family: monospace;
     }
-  }
-
-  .footer {
-    height: 3rem;
-    padding: 0 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 90%;
   }
 }
 </style>
