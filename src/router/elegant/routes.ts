@@ -44,7 +44,148 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'about',
       i18nKey: 'route.about',
       icon: 'fluent:book-information-24-regular',
-      order: 10
+      order: 110
+    }
+  },
+  {
+    name: 'banner',
+    path: '/banner',
+    component: 'layout.base$view.banner',
+    meta: {
+      title: 'banner',
+      i18nKey: 'route.banner',
+      icon: 'material-symbols:planner-banner-ad-pt-outline',
+      order: 2
+    }
+  },
+  {
+    name: 'cooperation',
+    path: '/cooperation',
+    component: 'layout.base',
+    meta: {
+      title: 'cooperation',
+      i18nKey: 'route.cooperation',
+      icon: 'ri:team-line',
+      order: 3
+    },
+    children: [
+      {
+        name: 'cooperation_config',
+        path: '/cooperation/config',
+        component: 'view.cooperation_config',
+        meta: {
+          title: 'cooperation_config',
+          i18nKey: 'route.cooperation_config',
+          icon: 'icon-park-twotone:config'
+        }
+      },
+      {
+        name: 'cooperation_image',
+        path: '/cooperation/image',
+        component: 'view.cooperation_image',
+        meta: {
+          title: 'cooperation_image',
+          i18nKey: 'route.cooperation_image',
+          icon: 'uim:image-v'
+        }
+      }
+    ]
+  },
+  {
+    name: 'example',
+    path: '/example',
+    component: 'layout.base',
+    meta: {
+      title: 'example',
+      i18nKey: 'route.example',
+      icon: 'fluent:tray-item-add-20-filled',
+      order: 4
+    },
+    children: [
+      {
+        name: 'example_body',
+        path: '/example/body',
+        meta: {
+          title: 'example_body',
+          i18nKey: 'route.example_body',
+          icon: 'fluent:code-text-20-filled'
+        },
+        children: [
+          {
+            name: 'example_body_config',
+            path: '/example/body/config',
+            component: 'view.example_body_config',
+            meta: {
+              title: 'example_body_config',
+              i18nKey: 'route.example_body_config',
+              icon: 'icon-park-twotone:config'
+            }
+          },
+          {
+            name: 'example_body_image',
+            path: '/example/body/image',
+            component: 'view.example_body_image',
+            meta: {
+              title: 'example_body_image',
+              i18nKey: 'route.example_body_image',
+              icon: 'uim:image-v'
+            }
+          }
+        ]
+      },
+      {
+        name: 'example_cover',
+        path: '/example/cover',
+        meta: {
+          title: 'example_cover',
+          i18nKey: 'route.example_cover',
+          icon: 'material-symbols:full-coverage-outline'
+        },
+        children: [
+          {
+            name: 'example_cover_config',
+            path: '/example/cover/config',
+            component: 'view.example_cover_config',
+            meta: {
+              title: 'example_cover_config',
+              i18nKey: 'route.example_cover_config',
+              icon: 'icon-park-twotone:config'
+            }
+          },
+          {
+            name: 'example_cover_image',
+            path: '/example/cover/image',
+            component: 'view.example_cover_image',
+            meta: {
+              title: 'example_cover_image',
+              i18nKey: 'route.example_cover_image',
+              icon: 'uim:image-v'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: 'feature',
+    path: '/feature',
+    component: 'layout.base$view.feature',
+    meta: {
+      title: 'feature',
+      i18nKey: 'route.feature',
+      icon: 'material-symbols:star-outline',
+      order: 5
+    }
+  },
+  {
+    name: 'footer',
+    path: '/footer',
+    component: 'layout.base$view.footer',
+    meta: {
+      title: 'footer',
+      i18nKey: 'route.footer',
+      icon: 'fluent:document-footer-24-filled',
+      order: 6
     }
   },
   {
@@ -55,7 +196,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'function',
       i18nKey: 'route.function',
       icon: 'icon-park-outline:all-application',
-      order: 6
+      order: 116
     },
     children: [
       {
@@ -159,7 +300,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'manage',
       i18nKey: 'route.manage',
       icon: 'carbon:cloud-service-management',
-      order: 9,
+      order: 119,
       roles: ['R_ADMIN']
     },
     children: [
@@ -216,64 +357,145 @@ export const generatedRoutes: GeneratedRoute[] = [
     ]
   },
   {
-    name: 'multi-menu',
-    path: '/multi-menu',
+    name: 'masonry',
+    path: '/masonry',
     component: 'layout.base',
     meta: {
-      title: 'multi-menu',
-      i18nKey: 'route.multi-menu',
+      title: 'masonry',
+      i18nKey: 'route.masonry',
+      icon: 'fluent:data-waterfall-20-filled',
+      order: 7
+    },
+    children: [
+      {
+        name: 'masonry_salon',
+        path: '/masonry/salon',
+        component: 'view.masonry_salon',
+        meta: {
+          title: 'masonry_salon',
+          i18nKey: 'route.masonry_salon',
+          icon: 'map:beauty-salon'
+        }
+      },
+      {
+        name: 'masonry_scholar',
+        path: '/masonry/scholar',
+        component: 'view.masonry_scholar',
+        meta: {
+          title: 'masonry_scholar',
+          i18nKey: 'route.masonry_scholar',
+          icon: 'mdi:university'
+        }
+      }
+    ]
+  },
+  {
+    name: 'process',
+    path: '/process',
+    component: 'layout.base',
+    meta: {
+      title: 'process',
+      i18nKey: 'route.process',
+      icon: 'mingcute:process-fill',
       order: 8
     },
     children: [
       {
-        name: 'multi-menu_first',
-        path: '/multi-menu/first',
+        name: 'process_config',
+        path: '/process/config',
+        component: 'view.process_config',
         meta: {
-          title: 'multi-menu_first',
-          i18nKey: 'route.multi-menu_first',
-          order: 1
-        },
-        children: [
-          {
-            name: 'multi-menu_first_child',
-            path: '/multi-menu/first/child',
-            component: 'view.multi-menu_first_child',
-            meta: {
-              title: 'multi-menu_first_child',
-              i18nKey: 'route.multi-menu_first_child'
-            }
-          }
-        ]
+          title: 'process_config',
+          i18nKey: 'route.process_config',
+          icon: 'icon-park-twotone:config'
+        }
       },
       {
-        name: 'multi-menu_second',
-        path: '/multi-menu/second',
+        name: 'process_image',
+        path: '/process/image',
+        component: 'view.process_image',
         meta: {
-          title: 'multi-menu_second',
-          i18nKey: 'route.multi-menu_second',
-          order: 2
-        },
-        children: [
-          {
-            name: 'multi-menu_second_child',
-            path: '/multi-menu/second/child',
-            meta: {
-              title: 'multi-menu_second_child',
-              i18nKey: 'route.multi-menu_second_child'
-            },
-            children: [
-              {
-                name: 'multi-menu_second_child_home',
-                path: '/multi-menu/second/child/home',
-                component: 'view.multi-menu_second_child_home',
-                meta: {
-                  title: 'multi-menu_second_child_home',
-                  i18nKey: 'route.multi-menu_second_child_home'
-                }
-              }
-            ]
-          }
-        ]
+          title: 'process_image',
+          i18nKey: 'route.process_image',
+          icon: 'uim:image-v'
+        }
+      }
+    ]
+  },
+  {
+    name: 'sample',
+    path: '/sample',
+    component: 'layout.base',
+    meta: {
+      title: 'sample',
+      i18nKey: 'route.sample',
+      icon: 'ri:align-item-top-line',
+      order: 9
+    },
+    children: [
+      {
+        name: 'sample_config',
+        path: '/sample/config',
+        component: 'view.sample_config',
+        meta: {
+          title: 'sample_config',
+          i18nKey: 'route.sample_config',
+          icon: 'icon-park-twotone:config'
+        }
+      },
+      {
+        name: 'sample_image',
+        path: '/sample/image',
+        component: 'view.sample_image',
+        meta: {
+          title: 'sample_image',
+          i18nKey: 'route.sample_image',
+          icon: 'uim:image-v'
+        }
+      }
+    ]
+  },
+  {
+    name: 'spotlight',
+    path: '/spotlight',
+    component: 'layout.base$view.spotlight',
+    meta: {
+      title: 'spotlight',
+      i18nKey: 'route.spotlight',
+      icon: 'mdi:spotlight-beam',
+      order: 10
+    }
+  },
+  {
+    name: 'standpoint',
+    path: '/standpoint',
+    component: 'layout.base',
+    meta: {
+      title: 'standpoint',
+      i18nKey: 'route.standpoint',
+      icon: 'icon-park-outline:six-points',
+      order: 11
+    },
+    children: [
+      {
+        name: 'standpoint_config',
+        path: '/standpoint/config',
+        component: 'view.standpoint_config',
+        meta: {
+          title: 'standpoint_config',
+          i18nKey: 'route.standpoint_config',
+          icon: 'icon-park-twotone:config'
+        }
+      },
+      {
+        name: 'standpoint_image',
+        path: '/standpoint/image',
+        component: 'view.standpoint_image',
+        meta: {
+          title: 'standpoint_image',
+          i18nKey: 'route.standpoint_image',
+          icon: 'uim:image-v'
+        }
       }
     ]
   },
@@ -286,5 +508,38 @@ export const generatedRoutes: GeneratedRoute[] = [
       i18nKey: 'route.user-center',
       hideInMenu: true
     }
+  },
+  {
+    name: 'visualization',
+    path: '/visualization',
+    component: 'layout.base',
+    meta: {
+      title: 'visualization',
+      i18nKey: 'route.visualization',
+      icon: 'fluent:search-visual-24-filled',
+      order: 12
+    },
+    children: [
+      {
+        name: 'visualization_config',
+        path: '/visualization/config',
+        component: 'view.visualization_config',
+        meta: {
+          title: 'visualization_config',
+          i18nKey: 'route.visualization_config',
+          icon: 'icon-park-twotone:config'
+        }
+      },
+      {
+        name: 'visualization_image',
+        path: '/visualization/image',
+        component: 'view.visualization_image',
+        meta: {
+          title: 'visualization_image',
+          i18nKey: 'route.visualization_image',
+          icon: 'uim:image-v'
+        }
+      }
+    ]
   }
 ];

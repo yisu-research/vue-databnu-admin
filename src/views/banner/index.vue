@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <LookForward />
+  <JsonEditor :code="`${'banner'}`" />
 </template>
 
 <style scoped></style>

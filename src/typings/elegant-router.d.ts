@@ -25,6 +25,19 @@ declare module "@elegant-router/types" {
     "404": "/404";
     "500": "/500";
     "about": "/about";
+    "banner": "/banner";
+    "cooperation": "/cooperation";
+    "cooperation_config": "/cooperation/config";
+    "cooperation_image": "/cooperation/image";
+    "example": "/example";
+    "example_body": "/example/body";
+    "example_body_config": "/example/body/config";
+    "example_body_image": "/example/body/image";
+    "example_cover": "/example/cover";
+    "example_cover_config": "/example/cover/config";
+    "example_cover_image": "/example/cover/image";
+    "feature": "/feature";
+    "footer": "/footer";
     "function": "/function";
     "function_hide-child": "/function/hide-child";
     "function_hide-child_one": "/function/hide-child/one";
@@ -39,13 +52,23 @@ declare module "@elegant-router/types" {
     "manage_role": "/manage/role";
     "manage_user": "/manage/user";
     "manage_user-detail": "/manage/user-detail/:id";
-    "multi-menu": "/multi-menu";
-    "multi-menu_first": "/multi-menu/first";
-    "multi-menu_first_child": "/multi-menu/first/child";
-    "multi-menu_second": "/multi-menu/second";
-    "multi-menu_second_child": "/multi-menu/second/child";
-    "multi-menu_second_child_home": "/multi-menu/second/child/home";
+    "masonry": "/masonry";
+    "masonry_salon": "/masonry/salon";
+    "masonry_scholar": "/masonry/scholar";
+    "process": "/process";
+    "process_config": "/process/config";
+    "process_image": "/process/image";
+    "sample": "/sample";
+    "sample_config": "/sample/config";
+    "sample_image": "/sample/image";
+    "spotlight": "/spotlight";
+    "standpoint": "/standpoint";
+    "standpoint_config": "/standpoint/config";
+    "standpoint_image": "/standpoint/image";
     "user-center": "/user-center";
+    "visualization": "/visualization";
+    "visualization_config": "/visualization/config";
+    "visualization_image": "/visualization/image";
   };
 
   /**
@@ -85,12 +108,22 @@ declare module "@elegant-router/types" {
     | "404"
     | "500"
     | "about"
+    | "banner"
+    | "cooperation"
+    | "example"
+    | "feature"
+    | "footer"
     | "function"
     | "home"
     | "login"
     | "manage"
-    | "multi-menu"
+    | "masonry"
+    | "process"
+    | "sample"
+    | "spotlight"
+    | "standpoint"
     | "user-center"
+    | "visualization"
   >;
 
   /**
@@ -113,6 +146,15 @@ declare module "@elegant-router/types" {
     | "500"
     | "login"
     | "about"
+    | "banner"
+    | "cooperation_config"
+    | "cooperation_image"
+    | "example_body_config"
+    | "example_body_image"
+    | "example_cover_config"
+    | "example_cover_image"
+    | "feature"
+    | "footer"
     | "function_hide-child_one"
     | "function_hide-child_three"
     | "function_hide-child_two"
@@ -123,9 +165,18 @@ declare module "@elegant-router/types" {
     | "manage_role"
     | "manage_user-detail"
     | "manage_user"
-    | "multi-menu_first_child"
-    | "multi-menu_second_child_home"
+    | "masonry_salon"
+    | "masonry_scholar"
+    | "process_config"
+    | "process_image"
+    | "sample_config"
+    | "sample_image"
+    | "spotlight"
+    | "standpoint_config"
+    | "standpoint_image"
     | "user-center"
+    | "visualization_config"
+    | "visualization_image"
   >;
 
   /**
