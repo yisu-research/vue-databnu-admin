@@ -1,7 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { useConfigStore } from '@/store/modules/config';
+
+defineOptions({
+  name: 'FooterConfig'
+});
+
+const configStore = useConfigStore();
+
+const filePath = 'footer';
+const fileName = 'index.json';
+
+const configData = ref('');
+
+onMounted(async () => {
+  const data = await configStore.getConfig(filePath, fileName);
+  configData.value = JSON.stringify(data, null, '  ');
+});
+</script>
 
 <template>
-  <JsonEditor :code="`${'banner'}`" />
+  <JsonEditor :file-path="filePath" :file-name="fileName" :code="configData" />
 </template>
 
 <style scoped></style>

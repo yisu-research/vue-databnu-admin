@@ -5,14 +5,19 @@ import { redo, undo } from '@codemirror/commands';
 import { Codemirror } from 'vue-codemirror';
 import { json } from '@codemirror/lang-json';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { useConfigStore } from '@/store/modules/config';
 
 defineOptions({ name: 'JsonEditor' });
 
 interface Props {
+  filePath?: string;
+  fileName?: string;
   code: string;
 }
 
 const props = defineProps<Props>();
+
+const configStore = useConfigStore();
 
 const code = shallowRef(props.code);
 const extensions = [json(), oneDark];
@@ -41,8 +46,8 @@ const handleRedo = () => {
   });
 };
 
-const handleSave = () => {
-  console.log('save');
+const handleSave = async () => {
+  await configStore.setConfig(props.filePath ?? '', props.fileName ?? '', code);
 };
 
 const state = reactive({
@@ -107,7 +112,7 @@ onMounted(() => {
           <span class="mr-1">重做</span>
           <SvgIcon icon="ci:redo" class="text-icon" />
         </NButton>
-        <NButton type="primary" @click="handleSave">
+        <NButton :loading="configStore.configLoading" type="primary" @click="handleSave">
           <span class="mr-1">保存</span>
           <SvgIcon icon="ant-design:save-twotone" class="text-icon" />
         </NButton>

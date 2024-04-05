@@ -220,4 +220,15 @@ declare namespace Api {
       children?: Menu[];
     }>;
   }
+
+  /**
+   * namespace Config
+   *
+   * backend api module: "config"
+   */
+  namespace Config {
+    interface Json {
+      [key: string]: string;
+    }
+  }
 }
