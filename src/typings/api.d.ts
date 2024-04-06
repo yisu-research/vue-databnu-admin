@@ -230,5 +230,7 @@ declare namespace Api {
     interface Json {
       [key: string]: string;
     }
+
+    type ImageList = string[];
   }
 }
