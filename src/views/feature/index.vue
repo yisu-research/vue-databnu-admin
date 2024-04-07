@@ -1,26 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { useConfigStore } from '@/store/modules/config';
-
 defineOptions({
   name: 'FeatureConfig'
 });
 
-const configStore = useConfigStore();
-
 const filePath = 'feature';
 const fileName = 'index.json';
-
-const configData = ref('');
-
-onMounted(async () => {
-  const data = await configStore.getConfig(filePath, fileName);
-  configData.value = JSON.stringify(data, null, '  ');
-});
 </script>
 
 <template>
-  <JsonEditor :file-path="filePath" :file-name="fileName" :code="configData" />
+  <JsonEditor :file-path="filePath" :file-name="fileName" />
 </template>
 
 <style scoped></style>

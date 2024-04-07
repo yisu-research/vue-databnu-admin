@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <JsonEditor :code="`${'banner'}`" />
+  <h1>sads</h1>
 </template>
 
 <style scoped></style>

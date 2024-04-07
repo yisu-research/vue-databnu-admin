@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, reactive, shallowRef, watch } from 'vue';
+import { onMounted, reactive, shallowRef } from 'vue';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 import { redo, undo } from '@codemirror/commands';
 import { Codemirror } from 'vue-codemirror';
@@ -10,16 +10,15 @@ import { useConfigStore } from '@/store/modules/config';
 defineOptions({ name: 'JsonEditor' });
 
 interface Props {
-  filePath?: string;
-  fileName?: string;
-  code: string;
+  filePath: string;
+  fileName: string;
 }
 
 const props = defineProps<Props>();
 
 const configStore = useConfigStore();
 
-const code = shallowRef(props.code);
+const code = shallowRef('');
 const extensions = [json(), oneDark];
 
 const preview = shallowRef(false);
@@ -67,13 +66,9 @@ const handleStateUpdate = (viewUpdate: ViewUpdate) => {
   state.lines = viewUpdate.state.doc.lines;
 };
 
-onMounted(() => {
-  watch(
-    () => props.code,
-    _code => {
-      code.value = _code;
-    }
-  );
+onMounted(async () => {
+  const data = await configStore.getConfig(props.filePath, props.fileName);
+  code.value = JSON.stringify(data, null, '  ');
 });
 </script>
 
