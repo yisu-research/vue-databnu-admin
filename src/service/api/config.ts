@@ -18,16 +18,16 @@ export function fetchConfig(filePath: string, fileName: string) {
  *
  * @param filePath File path
  * @param fileName File name
- * @param configData File name
+ * @param code File name
  */
-export function updateConfig(filePath: string, fileName: string, configData: any) {
+export function updateConfig(filePath: string, fileName: string, code: string) {
   return demoRequest({
     url: '/config/write',
     method: 'post',
     data: {
       file_path: filePath,
       file_name: fileName,
-      data: configData
+      code: JSON.parse(code)
     }
   });
 }
@@ -62,16 +62,16 @@ export function fetchImage(filePath: string, fileName: string) {
  *
  * @param filePath File path
  * @param fileName File name
- * @param configData File name
+ * @param code File name
  */
-export function appendImage(filePath: string, fileName: string, configData: any) {
+export function appendImage(filePath: string, fileName: string, code: any) {
   return demoRequest({
     url: '/config/write',
     method: 'post',
     data: {
       file_path: filePath,
       file_name: fileName,
-      data: configData
+      data: code
     }
   });
 }

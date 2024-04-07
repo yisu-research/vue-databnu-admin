@@ -17,10 +17,11 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
     startLoading();
 
     const config = await fetchConfig(filePath, fileName);
+    const res = JSON.stringify(config, null, '  ');
 
     endLoading();
 
-    return config ?? {};
+    return res ?? '';
   }
 
   /**
@@ -28,12 +29,12 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
    *
    * @param filePath File path
    * @param fileName File name
-   * @param configData File content
+   * @param code File content
    */
-  async function setConfig(filePath: string, fileName: string, configData: any) {
+  async function setConfig(filePath: string, fileName: string, code: string) {
     startLoading();
 
-    await updateConfig(filePath, fileName, configData);
+    await updateConfig(filePath, fileName, code);
 
     endLoading();
   }
@@ -82,12 +83,12 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
   //    *
   //    * @param filePath File path
   //    * @param fileName File name
-  //    * @param configData File content
+  //    * @param code File content
   //    */
-  //   async function setConfig(filePath: string, fileName: string, configData: any) {
+  //   async function setConfig(filePath: string, fileName: string, code: any) {
   //     startLoading();
 
-  //     await updateConfig(filePath, fileName, configData);
+  //     await updateConfig(filePath, fileName, code);
 
   //     endLoading();
   //   }

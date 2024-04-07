@@ -46,7 +46,7 @@ const handleRedo = () => {
 };
 
 const handleSave = async () => {
-  await configStore.setConfig(props.filePath ?? '', props.fileName ?? '', code);
+  await configStore.setConfig(props.filePath ?? '', props.fileName ?? '', code.value);
 };
 
 const state = reactive({
@@ -67,8 +67,7 @@ const handleStateUpdate = (viewUpdate: ViewUpdate) => {
 };
 
 onMounted(async () => {
-  const data = await configStore.getConfig(props.filePath, props.fileName);
-  code.value = JSON.stringify(data, null, '  ');
+  code.value = await configStore.getConfig(props.filePath, props.fileName);
 });
 </script>
 
