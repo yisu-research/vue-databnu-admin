@@ -23,7 +23,8 @@ const gap = computed(() => (appStore.isMobile ? 0 : 16));
         </NCard>
       </NGi>
     </NGrid>
-    <NGrid :x-gap="gap" :y-gap="16" responsive="screen" item-responsive>
+    <!--
+ <NGrid :x-gap="gap" :y-gap="16" responsive="screen" item-responsive>
       <NGi span="24 s:24 m:14">
         <NCard :bordered="false" class="card-wrapper">
           <span>目前仍在完善当中</span>
@@ -34,7 +35,8 @@ const gap = computed(() => (appStore.isMobile ? 0 : 16));
           <span>后续将支持配置更改与图片上传</span>
         </NCard>
       </NGi>
-    </NGrid>
+    </NGrid> 
+-->
   </NSpace>
 </template>
 

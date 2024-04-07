@@ -4,7 +4,6 @@ defineOptions({
 });
 
 const filePath = 'example_cover';
-// const fileName = 'index.json';
 </script>
 
 <template>

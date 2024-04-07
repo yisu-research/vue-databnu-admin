@@ -437,6 +437,11 @@ const local: App.I18n.Schema = {
     expand: '展开菜单',
     pin: '固定',
     unpin: '取消固定'
+  },
+  image: {
+    tooLarge: '文件大小超过 5MB',
+    notImage: '上传文件格式不是图片',
+    alreadyExist: '该图片已存在'
   }
 };
 

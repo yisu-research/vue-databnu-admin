@@ -577,6 +577,11 @@ declare namespace App {
         pin: string;
         unpin: string;
       };
+      image: {
+        tooLarge: string;
+        notImage: string;
+        alreadyExist: string;
+      };
     };
 
     type GetI18nKey<T extends Record<string, unknown>, K extends keyof T = keyof T> = K extends string

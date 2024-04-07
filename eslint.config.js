@@ -17,7 +17,8 @@ export default defineConfig(
           registeredComponentsOnly: false,
           ignores: ['/^icon-/']
         }
-      ]
+      ],
+      'vue/no-static-inline-styles': 'off'
     }
   }
 );

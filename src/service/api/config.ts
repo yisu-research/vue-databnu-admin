@@ -21,7 +21,7 @@ export function fetchConfig(filePath: string, fileName: string) {
  * @param code File name
  */
 export function updateConfig(filePath: string, fileName: string, code: string) {
-  return demoRequest({
+  return demoRequest<undefined>({
     url: '/config/write',
     method: 'post',
     data: {
@@ -45,33 +45,14 @@ export function fetchImageList(filePath: string) {
 }
 
 /**
- * Get image
+ * Append image
  *
- * @param filePath File path
- * @param fileName File name
+ * @param data request data
  */
-export function fetchImage(filePath: string, fileName: string) {
-  return demoRequest<Api.Config.Json>({
-    url: `/image/get/${filePath}/${fileName}`,
-    method: 'get'
-  });
-}
-
-/**
- * Update config
- *
- * @param filePath File path
- * @param fileName File name
- * @param code File name
- */
-export function appendImage(filePath: string, fileName: string, code: any) {
-  return demoRequest({
-    url: '/config/write',
+export function appendImage(data: object) {
+  return demoRequest<undefined>({
+    url: '/image/write',
     method: 'post',
-    data: {
-      file_path: filePath,
-      file_name: fileName,
-      data: code
-    }
+    ...data
   });
 }

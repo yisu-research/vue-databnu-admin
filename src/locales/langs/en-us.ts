@@ -437,6 +437,11 @@ const local: App.I18n.Schema = {
     expand: 'Expand Menu',
     pin: 'Pin',
     unpin: 'Unpin'
+  },
+  image: {
+    tooLarge: 'File size exceeds 5MB',
+    notImage: 'Uploaded file is not a valid image',
+    alreadyExist: 'The image already exists'
   }
 };
 

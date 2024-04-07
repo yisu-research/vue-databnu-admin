@@ -5,6 +5,7 @@ import { redo, undo } from '@codemirror/commands';
 import { Codemirror } from 'vue-codemirror';
 import { json } from '@codemirror/lang-json';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { $t } from '@/locales';
 import { useConfigStore } from '@/store/modules/config';
 
 defineOptions({ name: 'JsonEditor' });
@@ -15,6 +16,8 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const filePath = shallowRef(props.filePath);
+const fileName = shallowRef(props.fileName);
 
 const configStore = useConfigStore();
 
@@ -46,7 +49,8 @@ const handleRedo = () => {
 };
 
 const handleSave = async () => {
-  await configStore.setConfig(props.filePath ?? '', props.fileName ?? '', code.value);
+  await configStore.setConfig(filePath.value ?? '', fileName.value ?? '', code.value);
+  window.$message?.success($t('common.modifySuccess'));
 };
 
 const state = reactive({
@@ -67,7 +71,7 @@ const handleStateUpdate = (viewUpdate: ViewUpdate) => {
 };
 
 onMounted(async () => {
-  code.value = await configStore.getConfig(props.filePath, props.fileName);
+  code.value = await configStore.getConfig(filePath.value, fileName.value);
 });
 </script>
 

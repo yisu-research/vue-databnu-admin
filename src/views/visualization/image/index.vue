@@ -1,7 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({
+  name: 'VisualizationImage'
+});
+
+const filePath = 'visualization';
+</script>
 
 <template>
-  <h1>sads</h1>
+  <ImageUploader :file-path="filePath" />
 </template>
 
 <style scoped></style>
