@@ -1,6 +1,21 @@
 import { request } from '../request';
 
 /**
+ * Salt
+ *
+ * @param userName User name
+ */
+export function fetchSalt(userName: string) {
+  return request<Api.Auth.LoginSalt>({
+    url: '/auth/salt',
+    method: 'post',
+    data: {
+      userName
+    }
+  });
+}
+
+/**
  * Login
  *
  * @param userName User name

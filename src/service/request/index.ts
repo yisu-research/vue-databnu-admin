@@ -7,10 +7,7 @@ const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy
 
 export const request = createFlatRequest<App.Service.Response>(
   {
-    baseURL,
-    headers: {
-      apifoxToken: 'XL299LiMEDZ0H5h3A29PxwQXdMJqWyY2'
-    }
+    baseURL
   },
   {
     async onRequest(config) {
@@ -26,14 +23,14 @@ export const request = createFlatRequest<App.Service.Response>(
     isBackendSuccess(response) {
       // when the backend response code is "0000", it means the request is success
       // you can change this logic by yourself
-      return response.data.code === '0000';
+      return response.data.status === '200';
     },
     async onBackendFail(_response) {
       // when the backend response code is not "0000", it means the request is fail
       // for example: the token is expired, refresh token and retry request
     },
     transformBackendResponse(response) {
-      return response.data.data;
+      return response.data.result;
     },
     onError(error) {
       // when the request is fail, you can show error message

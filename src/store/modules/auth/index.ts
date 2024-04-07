@@ -1,9 +1,10 @@
 import { computed, reactive, ref } from 'vue';
+import { md5 } from 'js-md5';
 import { defineStore } from 'pinia';
 import { useLoading } from '@sa/hooks';
 import { SetupStoreId } from '@/enum';
 import { useRouterPush } from '@/hooks/common/router';
-import { fetchGetUserInfo, fetchLogin } from '@/service/api';
+import { fetchGetUserInfo, fetchLogin, fetchSalt } from '@/service/api';
 import { localStg } from '@/utils/storage';
 import { $t } from '@/locales';
 import { useRouteStore } from '../route';
@@ -45,9 +46,12 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   async function login(userName: string, password: string) {
     startLoading();
 
-    const { data: loginToken, error } = await fetchLogin(userName, password);
+    const { data: salt, error: errorSalt } = await fetchSalt(userName);
+    const hash = md5(`${md5(password)}${salt}`);
 
-    if (!error) {
+    const { data: loginToken, error: errorLogin } = await fetchLogin(userName, hash);
+
+    if (!errorSalt && !errorLogin) {
       const pass = await loginByToken(loginToken);
 
       if (pass) {

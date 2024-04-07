@@ -2,14 +2,14 @@
 import { computed } from 'vue';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
-// import { useAuthStore } from '@/store/modules/auth';
+import { useAuthStore } from '@/store/modules/auth';
 
 defineOptions({
   name: 'HeaderBanner'
 });
 
 const appStore = useAppStore();
-// const authStore = useAuthStore();
+const authStore = useAuthStore();
 
 const gap = computed(() => (appStore.isMobile ? 0 : 16));
 
@@ -48,14 +48,13 @@ const statisticData = computed<StatisticData[]>(() => [
           </div>
           <div class="pl-12px">
             <h3 class="text-18px font-semibold">
-              <!-- {{ $t('page.home.greeting', { userName: authStore.userInfo.userName }) }} -->
-              {{ $t('page.home.greeting', { userName: 'Databnu' }) }}
+              {{ $t('page.home.greeting', { userName: authStore.userInfo.userName }) }}
             </h3>
             <p class="text-#999 leading-30px">{{ $t('page.home.weatherDesc') }}</p>
           </div>
         </div>
       </NGi>
-      <NGi span="24 s:24 m:6">
+      <NGi span="24 s:24 m:6" class="hidden">
         <NSpace :size="24" justify="end">
           <NStatistic v-for="item in statisticData" :key="item.id" class="whitespace-nowrap" v-bind="item" />
         </NSpace>
