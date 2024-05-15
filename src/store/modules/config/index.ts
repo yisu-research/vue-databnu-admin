@@ -4,6 +4,8 @@ import type { UploadFileInfo } from 'naive-ui';
 import { SetupStoreId } from '@/enum';
 import { appendImage, fetchConfig, fetchImageList, updateConfig } from '@/service/api';
 
+const { VITE_SERVICE_BASE_URL } = import.meta.env;
+
 export const useConfigStore = defineStore(SetupStoreId.Config, () => {
   const { loading: configLoading, startLoading, endLoading } = useLoading();
 
@@ -16,7 +18,7 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
   async function getConfig(filePath: string, fileName: string) {
     startLoading();
 
-    const config = await fetchConfig(filePath, fileName);
+    const { data: config } = await fetchConfig(filePath, fileName);
     const res = JSON.stringify(config, null, '  ');
 
     endLoading();
@@ -47,13 +49,13 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
   async function getImageList(filePath: string) {
     startLoading();
 
-    const list = await fetchImageList(filePath);
+    const { data: list } = await fetchImageList(filePath);
     const res = (list ?? []).map(fileName => {
       return {
         id: fileName,
         name: fileName,
         status: 'finished',
-        url: `http://127.0.0.1:6077/image/get/${filePath}/${fileName}`
+        url: `${VITE_SERVICE_BASE_URL}/image/get/${filePath}/${fileName}`
       } as UploadFileInfo;
     });
 
@@ -69,7 +71,7 @@ export const useConfigStore = defineStore(SetupStoreId.Config, () => {
    * @param fileName File name
    */
   function updateImageUrl(filePath: string, fileName: string) {
-    return `http://127.0.0.1:6077/image/get/${filePath}/${fileName}`;
+    return `${VITE_SERVICE_BASE_URL}/image/get/${filePath}/${fileName}`;
   }
 
   /**

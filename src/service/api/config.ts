@@ -1,4 +1,4 @@
-import { demoRequest } from '../request';
+import { request } from '../request';
 
 /**
  * Get config
@@ -7,7 +7,7 @@ import { demoRequest } from '../request';
  * @param fileName File name
  */
 export function fetchConfig(filePath: string, fileName: string) {
-  return demoRequest<Api.Config.Json>({
+  return request<Api.Config.Json>({
     url: `/config/get/${filePath}/${fileName}`,
     method: 'get'
   });
@@ -21,7 +21,7 @@ export function fetchConfig(filePath: string, fileName: string) {
  * @param code File name
  */
 export function updateConfig(filePath: string, fileName: string, code: string) {
-  return demoRequest<undefined>({
+  return request<undefined>({
     url: '/config/write',
     method: 'post',
     data: {
@@ -38,7 +38,7 @@ export function updateConfig(filePath: string, fileName: string, code: string) {
  * @param filePath File path
  */
 export function fetchImageList(filePath: string) {
-  return demoRequest<Api.Config.ImageList>({
+  return request<Api.Config.ImageList>({
     url: `/image/list/${filePath}`,
     method: 'get'
   });
@@ -50,7 +50,7 @@ export function fetchImageList(filePath: string) {
  * @param data request data
  */
 export function appendImage(data: object) {
-  return demoRequest<undefined>({
+  return request<undefined>({
     url: '/image/write',
     method: 'post',
     ...data

@@ -39,7 +39,7 @@ export const request = createFlatRequest<App.Service.Response>(
 
       // show backend error message
       if (error.code === BACKEND_ERROR_CODE) {
-        message = error.response?.data?.msg || message;
+        message = error.response?.data?.message || message;
       }
 
       window.$message?.error(message);

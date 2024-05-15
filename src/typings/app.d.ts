@@ -638,7 +638,7 @@ declare namespace App {
       /** The backend service response code */
       status: string;
       /** The backend service response message */
-      msg: string;
+      message: string;
       /** The backend service response data */
       result: T;
     };
