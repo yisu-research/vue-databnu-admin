@@ -8,6 +8,13 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
+    location /databnu_info {
+        proxy_pass http://${BACKEND_HOST}:${BACKEND_PORT};
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        rewrite ^/databnu_info(/.*)$ $1 break;
+    }
+
     error_page 500 502 503 504 /50x.html;
     location = /50x.html {
         root /usr/share/nginx/html;
